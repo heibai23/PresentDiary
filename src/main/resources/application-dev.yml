@@ -1,0 +1,27 @@
+server:
+  port: 8080
+  session-timeout: 30
+  tomcat:
+    uri-encoding: utf-8
+
+# spring配置
+spring:
+  # 数据源配置
+  datasource:
+    # 需要加上时区
+    url: jdbc:mysql://localhost:3306/diary?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  # JPA
+  jpa:
+    hibernate:
+      ddl-auto: update  # create每次运行都删除原有表创建新表,update不用每次创建新表
+    show-sql: true  # 打印sql语句
+# 应用的日志
+logging:
+  # 级别
+  level:
+    com.glmapper.spring.boot: debug
+  # 文件路径
+  file.path: ./logs
