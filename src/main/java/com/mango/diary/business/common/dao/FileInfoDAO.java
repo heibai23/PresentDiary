@@ -15,5 +15,11 @@ import java.util.Optional;
 @Repository
 public interface FileInfoDAO extends BaseRepository<TFileInfo, String> {
 
+    /**
+     * 获取文件信息
+     * @param id
+     * @return
+     */
+    @Override
     Optional<TFileInfo> findById(String id);
 }

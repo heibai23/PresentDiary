@@ -15,6 +15,12 @@ import java.util.Map;
  */
 public class ListUtils {
 
+    /**
+     * 集合数据对象拷贝
+     * @param list
+     * @param <T>
+     * @return
+     */
     public static <T> List copyList(List<T> list) {
         if (CollectionUtils.isEmpty(list)) {
             return new ArrayList();

@@ -55,3 +55,40 @@
    ```
 
 4. 功能
+   1. 文件上传
+   ```java
+   // 前端Vue使用表单对象参数：FormData（详细看前端项目代码diary）
+   
+   // 后端
+   @PostMapping("/upload")
+    public String uploadFile(@RequestParam(name = "file")MultipartFile file){
+        System.out.println(JSON.toJSONString(file));
+        return "success";
+    }
+   
+   ```
+   
+   2. 文件下载
+   ```java
+   // 前提：数据库存储的是二进制数据
+   // 前端：请求参数的返回类型为 responseType: 'blob'
+   
+   // 后端：1.获取response对象、2.获取字节输出流、3.输出流写数据，前端接收并模拟下载
+     @PostMapping("/download")
+     public void downloadFile(@RequestBody TimeLineVO timeLineVO){
+                 ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+                 HttpServletRequest request = servletRequestAttributes.getRequest();
+                 HttpServletResponse response = servletRequestAttributes.getResponse();
+                 try {
+                     // 下载服务
+                     fileUploaderService.downloadFileInfo(request,response);
+                 } catch (UnsupportedEncodingException e) {
+                     e.printStackTrace();
+                 }  
+       }   
+   
+   3. 工具类
+       1. 集合工具类
+           + 集合对象拷贝
+   
+   ```

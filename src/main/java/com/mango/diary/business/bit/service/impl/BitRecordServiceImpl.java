@@ -23,7 +23,7 @@ import java.util.List;
  * Description：服务实现
  */
 @Service
-@Transactional
+@Transactional(rollbackOn = Exception.class)
 public class BitRecordServiceImpl implements BitRecordService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BitRecordServiceImpl.class);
