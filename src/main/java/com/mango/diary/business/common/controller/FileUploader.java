@@ -1,5 +1,9 @@
 package com.mango.diary.business.common.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.mango.diary.business.home.web.HomeController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -14,11 +18,13 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/file")
 public class FileUploader {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
+
     @PostMapping("/upload")
     public String uploadFile(@RequestParam(name = "file")MultipartFile file){
 
-
-        return "";
+        LOGGER.info(JSON.toJSONString(file));
+        return "success";
     }
 
 

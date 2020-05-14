@@ -39,7 +39,7 @@ public class BitOperationController {
      * @return
      */
     @PostMapping("/recordBit")
-    @ApiOperation(value = "记点滴",notes = "记录点滴操作方法")
+    @ApiOperation(value = "记点滴", notes = "记录点滴操作方法")
     public String recordBit(@RequestBody(required = true) TimeLineVO timeLineVO) {
         LOGGER.info("[Api:/bit/recordBit][Methods:recordBit][params:timeLineVO]" + timeLineVO.toString());
         bitRecordService.saveOrUpdate(timeLineVO.getType(), timeLineVO);
@@ -66,9 +66,9 @@ public class BitOperationController {
      * @return
      */
     @GetMapping("/fetchTimeLines/{id}")
-    @ApiOperation(value = "获取时间轴数据",notes = "获取点滴集合")
+    @ApiOperation(value = "获取时间轴数据", notes = "获取点滴集合")
     public List<TimeLineVO> fetchTimeLines(@PathVariable(value = "id") String id) {
-        LOGGER.info("[Api:/bit/fetchBitData][Mehtods:fetchBitData]");
+        LOGGER.info("[Api:/bit/fetchTimeLines][Mehtods:fetchBitData]");
         List<TimeLineVO> timeLineVOList = bitRecordService.fetchBitData();
 
         return timeLineVOList;

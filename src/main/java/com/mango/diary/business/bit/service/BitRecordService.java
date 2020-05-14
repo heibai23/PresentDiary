@@ -28,5 +28,9 @@ public interface BitRecordService {
      */
     TBitRecord saveOrUpdate(int type, TimeLineVO timeLineVO);
 
+    /**
+     * 获取时间轴数据
+     * @return
+     */
     List<TimeLineVO> fetchBitData();
 }

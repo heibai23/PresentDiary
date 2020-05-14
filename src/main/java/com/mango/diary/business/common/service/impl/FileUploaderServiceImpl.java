@@ -62,7 +62,6 @@ public class FileUploaderServiceImpl implements FileUploaderService {
 
     @Override
     public String downloadFileInfo(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
-        //.......................业务代码省略，下面给出下载核心代码
         //下载逻辑：
         // 设置强制下载不打开
         response.setContentType("application/force-download");
